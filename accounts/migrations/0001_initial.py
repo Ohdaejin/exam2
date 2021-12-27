@@ -9,9 +9,10 @@ from accounts.models import User
 
 
 def gen_master(apps, schema_editor):
-    User.objects.create_user(username="admin", password="admin", first_name="관리자", email="", gender="M")
+    User.objects.create_user(username="admin", password="admin", first_name="관리자", email="", gender="M",
+                             is_superuser=True, is_staff=True)
 
-    for id in range(1, 4):
+    for id in range(2, 5):
         username = f"user{id}"
         password = f"user{id}"
         first_name = f"이름{id}"
