@@ -10,4 +10,6 @@ def product_list(request: HttpRequest):
     return render(request, "products/product_list.html", {
         "product_list": product_list
     })
-    return HttpResponse("안녕")
+
+def product_detail(request: HttpRequest, id):
+    return HttpResponse(f"상품 상세페이지, {id}")
