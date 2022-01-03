@@ -15,20 +15,25 @@
   position: relative;
 }
 
-.t-mt-\[100px\] {
-  margin-top: 100px;
-}
-
-.t-mt-3 {
-  margin-top: 0.75rem;
+.t-my-\[0px\] {
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 
 .t-mt-\[56px\] {
   margin-top: 56px;
 }
 
+.t-mt-3 {
+  margin-top: 0.75rem;
+}
+
 .t-mt-2 {
   margin-top: 0.5rem;
+}
+
+.t-mt-\[30px\] {
+  margin-top: 30px;
 }
 
 .t-block {
@@ -51,6 +56,10 @@
   width: 100%;
 }
 
+.t-max-w-\[300px\] {
+  max-width: 300px;
+}
+
 .t-flex-1 {
   flex: 1 1 0%;
 }
@@ -69,6 +78,15 @@
 
 .t-whitespace-nowrap {
   white-space: nowrap;
+}
+
+.t-py-\[20px\] {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.t-pt-\[56px\] {
+  padding-top: 56px;
 }
 
 .t-text-center {
@@ -91,6 +109,13 @@
   font-weight: normal;
 
   font-style: normal;
+}
+
+html > body ul,
+html > body li {
+  margin:0;
+  padding:0;
+  list-style:none;
 }
 
 html > body {
@@ -208,11 +233,6 @@ html > body {
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
-}
-
-.after\:t-content-\[\'VIEW_MORE\'\]::after {
-  --tw-content: 'VIEW MORE';
-  content: var(--tw-content);
 }
 
 .after\:t-content-\[attr\(data-before\)\]::after {
