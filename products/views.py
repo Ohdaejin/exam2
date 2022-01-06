@@ -15,16 +15,17 @@ def product_list(request: HttpRequest):
         "products": products
     })
 
+
 def _product_detail(request: HttpRequest, product_id):
     product = get_object_or_404(Product, id=product_id)
 
-    if request.method == "POST":
+    if request.method == "POST" and request.user.is_authenticated:
         form = QuestionForm(request.POST)
         if form.is_valid():
             question = form.save(commit=False)
             question.content_type = ContentType.objects.get_for_model(product)
             question.object_id = product.id
-            question.user_id = 1
+            question.user = request.user
             question.save()
             messages.success(request, "질문이 등록되었습니다.")
 
@@ -42,6 +43,7 @@ def _product_detail(request: HttpRequest, product_id):
         "question_form": form
     })
 
+
 def product_detail(request: HttpRequest, product_id):
     return _product_detail(request, product_id)
 
@@ -58,6 +60,7 @@ def question_delete(request: HttpRequest, product_id, question_id):
     messages.success(request, "질문이 삭제되었습니다.")
 
     return redirect("products:detail", product_id=product_id)
+
 
 def question_modify(request: HttpRequest, product_id, question_id):
     product = get_object_or_404(Product, id=product_id)
